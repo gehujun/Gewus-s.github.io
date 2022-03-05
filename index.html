@@ -62,7 +62,7 @@
     
   <div class="cover-frame">
     <div class="bg-box">
-      <img src="/images/cover1.jpg" alt="image frame" />
+      <img src="/images/cover2.jpg" alt="image frame" />
     </div>
     <div class="cover-inner text-center text-white">
       <h1><a href="/">Hexo</a></h1>
@@ -91,11 +91,11 @@
   <script>
     try {
       var typed = new Typed("#subtitle", {
-        strings: ['面朝大海，春暖花开', '愿你一生努力，一生被爱', '想要的都拥有，得不到的都释怀'],
+        strings: ['欢迎来到Gewus的博客', '', ''],
         startDelay: 0,
         typeSpeed: 200,
         loop: true,
-        backSpeed: 100,
+        backSpeed: 200,
         showCursor: true
       });
     } catch (err) {
@@ -122,48 +122,6 @@
     
 </ul>
   
-  
-  
-
-<div class="notice" style="margin-top:50px">
-    <i class="ri-heart-fill"></i>
-    <div class="notice-content" id="broad"></div>
-</div>
-<script type="text/javascript">
-    fetch('https://v1.hitokoto.cn')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("broad").innerHTML = data.hitokoto;
-        })
-        .catch(console.error)
-</script>
-
-<style>
-    .notice {
-        padding: 20px;
-        border: 1px dashed #e6e6e6;
-        color: #969696;
-        position: relative;
-        display: inline-block;
-        width: 100%;
-        background: #fbfbfb50;
-        border-radius: 10px;
-    }
-
-    .notice i {
-        float: left;
-        color: #999;
-        font-size: 16px;
-        padding-right: 10px;
-        vertical-align: middle;
-        margin-top: -2px;
-    }
-
-    .notice-content {
-        display: initial;
-        vertical-align: middle;
-    }
-</style>
   
   <article class="articles">
     
@@ -204,53 +162,6 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//206. 反转链表</span></span><br><span class="line"><span class="function">ListNode* <span class="title">reverseList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(head == <span class="literal">nullptr</span>) <span class="keyword">return</span> head;</span><br><span class="line">    ListNode* prev = <span class="literal">nullptr</span>;</span><br><span class="line">    ListNode* curr = head;</span><br><span class="line">    ListNode* next = head-&gt;next;</span><br><span class="line">    <span class="keyword">while</span>(curr != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">        curr-&gt;next = prev;</span><br><span class="line">        prev = curr;</span><br><span class="line">        curr = next;            </span><br><span class="line">        <span class="keyword">if</span>(next != <span class="literal">nullptr</span>) next = next-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> prev;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//25. K 个一组翻转链表  </span></span><br><span class="line"><span class="function">ListNode* <span class="title">reverseKGroup</span><span class="params">(ListNode* head, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//右移k个元素，使其next == nullptr ，复用reverseList函数</span></span><br><span class="line">    ListNode* dummyNode = <span class="keyword">new</span> <span class="built_in">ListNode</span>();</span><br><span class="line">    dummyNode-&gt;next = head;</span><br><span class="line">    </span><br><span class="line">    ListNode* lastTail = dummyNode;</span><br><span class="line">    ListNode* newHead = head;</span><br><span class="line">    ListNode* tail = head;</span><br><span class="line">    ListNode* nextHead = head;</span><br><span class="line">    <span class="keyword">while</span>(tail != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> i = k;</span><br><span class="line">        <span class="keyword">while</span>(--i)&#123;</span><br><span class="line">            tail = tail-&gt;next;</span><br><span class="line">            <span class="keyword">if</span>(tail == <span class="literal">nullptr</span>)&#123;</span><br><span class="line">                lastTail-&gt;next = newHead;</span><br><span class="line">                <span class="keyword">return</span> dummyNode-&gt;next;</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        nextHead = tail-&gt;next;</span><br><span class="line">        tail-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">        lastTail-&gt;next = <span class="built_in">reverseList</span>(newHead);</span><br><span class="line"></span><br><span class="line">        lastTail = newHead;</span><br><span class="line">        newHead = nextHead;</span><br><span class="line">        tail = nextHead;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dummyNode-&gt;next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
  
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-artic-tiitle"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/01/11/artic-tiitle/"
-    >artic tiitle</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/01/11/artic-tiitle/" class="article-date">
-  <time datetime="2022-01-11T11:32:25.000Z" itemprop="datePublished">2022-01-11</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-   
       <!-- reward -->
       
     </div>
@@ -420,22 +331,6 @@
     
     <li class="nav-item">
       <a class="nav-item-link" href="/tags">标签</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" target="_blank" rel="noopener" href="http://shenyu-vip.lofter.com">摄影</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/friends">友链</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/2019/about">关于我</a>
     </li>
     
   </ul>
